@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:p="http://primefaces.org/ui">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Donde vivir</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/estilos.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/font-awesome.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/font-awesome.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/modern-business.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-grid.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-grid.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-reboot.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-reboot.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap.css" />
+	<script src="https://use.fontawesome.com/74edfe93a4.js"></script>
+
+</head>
+<f:view>
+	
+	<h:body>
+	<section class="container">
+	
+	<div class="row">
+		<div class="col-lg-6 offset-lg-3  col-md-10 offset-md-1">
+			<div class="col-lg-12 text-center title-login">
+			<!-- <a class="titulo-one color-yellow " href="#{facesContext.externalContext.requestContextPath}/"><h3>¿DONDE VIVIR?</h3></a> -->	
+			</div>
+			<div class="row  jumbotron bg-login">
+				<div class="col-lg-12 text-center">
+					<a class="titulo-one color-yellow " href="#{facesContext.externalContext.requestContextPath}/"><h3>¿DONDE VIVIR?</h3></a>	
+				</div>
+			
+				<div class="col-lg-12 col-md-12 text-center py-3">
+					<a class="titulo-2 color-gray ">REGISTRO DE PERSONAS Y EMPRESAS</a>
+					<P>Ingresa un nombre de usuario y una contraseña, para que puedas publicar tu inmueble o generar publicidad para tu negocio</P>
+				</div>
+				<div class="col-lg-12 ">
+					<!--form de registro  -->
+						<h:form prependId="false" id="form1">
+							<p:outputPanel id="pnlForm" >
+								<div class="box-body">
+									<div class=" col-lg-12 col-md-12 col-sm-12">
+										<div class="panel panel-default">
+										
+											<!-- <div class="panel-heading" style="height: 50px;"> -->
+												<!-- <label class="subtitle-head">#{msg['lbl.usuarioNuevo']}</label> -->
+											<!-- </div> -->
+											<div class="panel-body form-fields-vertical">
+												<div class="col-lg-12 col-sm-12 form-group">
+													<label for="txt_user_name" class="col-sm-12 control-label">#{msg['lbl.nombreUsuario']}</label>
+													<div class="col-lg-12 col-sm-12">
+														<h:inputText type="text" autocomplete="off" styleClass="form-control" id="txt_user_name" value="#{usuariosSistemaBean.userCurrent.username}" required="true" requiredMessage="#{msg['obligatoryField']}">
+														</h:inputText>
+														<p:watermark for="txt_user_name" value="#{msg['lbl.nombre']}" />
+														<p:message for="txt_user_name" />
+													</div>
+												</div>
+
+												<div class="clearfix" />
+
+												<div class="col-sm-12 form-group">
+													<label for="txt_password" class="col-sm-12 control-label">#{msg['lbl.contrasena']}</label>
+													<div class="col-sm-12 input-group" style="padding-left: 16px; padding-right: 16px;">
+														<h:inputText type="text" autocomplete="off" validatorMessage="#{msg.passwordValidatorMsg}" styleClass="form-control" id="txt_password" value="#{usuariosSistemaBean.passwordTemp}" required="#{usuariosSistemaBean.obligatorio}"
+															requiredMessage="#{msg['obligatoryField']}">
+															<f:ajax event="blur" render="passwordMsg" />
+															<f:validateRegex for="txt_password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{5,20})$" />
+														</h:inputText>
+														<p:watermark for="txt_password" value="#{msg['lbl.contrasena']}" />
+														
+													</div>
+													
+												</div>
+												<div class="clearfix" />
+
+												<div class="col-sm-12 form-group">
+													<label for="txt_password2" class="col-sm-12 control-label">#{msg['lbl.contrasenaConfirm']}</label>
+													<div class="col-sm-12 input-group" style="padding-left: 16px; padding-right: 16px;">
+														<h:inputText type="text" autocomplete="off" validatorMessage="#{msg.passwordValidatorMsg}" styleClass="form-control" id="txt_password2" value="#{usuariosSistemaBean.passwordTemp}" required="#{usuariosSistemaBean.obligatorio}"
+															requiredMessage="#{msg['obligatoryField']}">
+															<f:ajax event="blur" render="passwordMsg" />
+															<f:validateRegex for="txt_password2" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{5,20})$" />
+														</h:inputText>
+														<p:watermark for="txt_password2" value="#{msg['lbl.contrasena']}" />
+														
+													</div>
+													
+												</div>
+			
+												<div class="clearfix" />
+
+												<div class="col-lg-12 col-sm-12">	
+													<button type="submit" class="btn-login">REGISTRARME</button>
+													<!-- <p:commandButton title="#{msg['lbl.guardar']}" process="@form" action="#{usuariosSistemaBean.save()}" update=":form1" onstart="showSpinner();" onsuccess="hideSpinner();" styleClass="btn-ic" icon="ic-btn ic-btn-save" /> -->	
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</p:outputPanel>
+						</h:form>
+					
+					<!--  -->
+				</div>
+				<div class="col-lg-12">
+					<div class="row py-3">
+						 
+						<div class="col-lg-12 col-md-12 col-xs-1 bg-l text-center">
+							<a  class="texto-4 " href="#{facesContext.externalContext.requestContextPath}/">Ya tengo una cuenta, volver al inicio.</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</section>
+	
+	</h:body>
+		<script
+		src="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/jquery/jquery.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/jquery/jquery.min.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="#{facesContext.externalContext.requestContextPath}/resources/assets/plugins/icheck/icheck.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
+	<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  });
+</script>
+	
+</f:view>
+</html>

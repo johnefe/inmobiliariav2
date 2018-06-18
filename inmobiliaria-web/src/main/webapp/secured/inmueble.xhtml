@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui">
+<h:head id="head">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Donde Vivir</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		name="viewport" />
+	<!-- 	FAVICON -->
+
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/estilos.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/font-awesome.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/font-awesome.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/css/modern-business.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-grid.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-grid.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-reboot.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap-reboot.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/css/bootstrap.css" />
+	<script src="https://use.fontawesome.com/74edfe93a4.js"></script>
+</h:head>
+<body>
+
+	<!-- Navigation -->
+	<nav
+		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top header-app">
+	<div class="container ">
+		<a class="navbar-brand app-a" href="#{facesContext.externalContext.requestContextPath}/">¿DONDE VIVIR?</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button"
+			data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link app-link"
+					href="#{facesContext.externalContext.requestContextPath}/buscar_inmuebles">BUSCAR INMUEBLES</a></li>
+				<li class="nav-item"><a class="nav-link app-a"
+					href="#{facesContext.externalContext.requestContextPath}/secured/inmueble/inmueble">PUBLICA TU INMUEBLE</a></li>
+				<h:panelGroup rendered="#{proinsaludBean.user == null}">
+							<li class="nav-item"><a
+								class="nav-link app-link" href="#{facesContext.externalContext.requestContextPath}/login">
+									INGRESAR </a></li>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{proinsaludBean.user != null}">
+					<li class="nav-item"><a
+								class="nav-link app-link" href="#{facesContext.externalContext.requestContextPath}/secured/index.xhtml">
+									#{proinsaludBean.user.username.toUpperCase()} </a></li>
+					<li class="nav-item"><a
+								class="nav-link app-link" href="#{facesContext.externalContext.requestContextPath}/logout">
+									SALIR </a></li>
+				</h:panelGroup>
+				
+			</ul>
+		</div>
+	</div>
+	</nav>
+<h:form prependId="false" id="form1" >	
+<p:outputPanel id="pnlGeneral">
+	<section class="px-4">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="row py-4">
+				<div class="col-lg-12 text-center">
+				<div class="card my-2">
+				  <div class="card-body">
+				    <h3 class="titulo-2 color-black">VENDE O ARRIENDA MÁS RÁPIDO: APARTAMENTOS, CASAS Y OFICINAS</h3>
+				  </div>
+				</div>
+					
+				</div>
+				<!-- categorias de mis inmuebles -->
+				<div class="col-lg-9 col-md-12 my-2 ">
+					<div class="card text-center">
+				  <div class="card-header">
+				   	<h3 class="titulo-3 color-tomato">ELIGE LA MEJOR PLAN PARA PUBLICAR TU INMUEBLE</h3>
+				  </div>
+				  <div class="card-body">
+					  <div class="row">
+					  <!-- UN PLAN -->
+					  	<div class="col-lg-3 col-md-4 col-xs-12 plan py-1">
+					  		<div class="card text-center">
+							  <div class="card-header bg-gray-header-card">
+							    GRATIS
+							  </div>
+							  <div class="card-body bg-body-card">
+							    <h5 class="card-title"></h5>
+							    <p class="card-text texto-5">30% EFECTIVO </p>
+							    <a href="#" class="btn btn-select">Elegir este plan</a>
+							  </div>
+							  <div class="card-footer bg-gray-header-card">
+							     <h3 class="aviso"></h3>
+							  </div>
+							</div>
+					  	</div>	
+					  	<!--FIN  UN PLAN -->    
+					  	<!-- UN PLAN -->
+					  	<div class="col-lg-3 col-md-4 col-xs-12 plan py-1">
+					  		<div class="card text-center">
+							  <div class="card-header bg-gray-header-card">
+							    BRONCE $30.000
+							  </div>
+							  <div class="card-body bg-body-card">
+							    <h5 class="card-title"></h5>
+							    <p class="card-text texto-5 ">50% EFECTIVO </p>
+							    <a href="#" class="btn btn-select">Elegir este plan</a>
+							  </div>
+							  <div class="card-footer  bg-gray-header-card">
+							    <h3 class="aviso"></h3>
+							  </div>
+							</div>
+					  	</div>	
+					  	<!--FIN  UN PLAN -->  
+					  	<!-- UN PLAN -->
+					  	<div class="col-lg-3 col-md-4 col-xs-12 plan py-1">
+					  		<div class="card text-center">
+							  <div class="card-header bg-gray-header-card">
+							    PLATIUM $40.000
+							  </div>
+							  <div class="card-body bg-body-card" >
+							    <h5 class="card-title"></h5>
+							    <p class="card-text texto-5">60% EFECTIVO </p>
+							    <a href="#" class="btn btn-select">Elegir este plan</a>
+							  </div>
+							  <div class="card-footer  bg-gray-header-card">
+							     <h3 class="aviso"></h3>
+							  </div>
+							</div>
+					  	</div>	
+					  	<!--FIN  UN PLAN --> 
+					  	<!-- UN PLAN -->
+					  	<div class="col-lg-3 col-md-4 col-xs-12 plan py-1">
+					  		<div class="card text-center">
+							  <div class="card-header bg-gray-header-card">
+							    GOLD $50.000
+							  </div>
+							  <div class="card-body bg-body-card">
+							    <h5 class="card-title"></h5>
+							   <p class="card-text texto-5">90% EFECTIVO</p>
+
+							    <a href="#" class="btn btn-select">Elegir este plan</a>
+							  </div>
+							  <div class="card-footer bg-gray-header-card">
+							     <h3 class="aviso"></h3>
+							  </div>
+							</div>
+					  	</div>	
+					  	<!--FIN  UN PLAN -->   
+					 </div>
+				  </div>
+				</div>
+				</div>
+				
+				<div class="col-lg-3">
+				<!-- 	publicidad -->
+					<div class="col-lg-12 col-md-12 my-2 ">
+						<div class="card text-center">
+					  <div class="card-header">
+					   	<h4 class="titulo-3 color-tomato">INFORMACIÓN DEL PLAN</h4>
+					  </div>
+					  <div class="card-body">
+					    <div class="row">
+					    	<div class="col-lg-12">
+					    		<div class="alert  bg-body-info" role="alert">
+								  <h2 class="alert-heading titulo-3 color-black">DISFRUTA DE NUESTROS PLANES!</h2>
+								  <p class="texto-4">Elige un plan para que tu aviso sea visible ante mucha gente.</p>
+								  <hr/>
+								 
+								</div>
+					    	</div>
+					    </div>
+					  </div>
+					</div>
+					</div>
+				
+				<!-- *************************** -->
+				</div>
+	
+			</div>
+			
+		</div>
+		<!-- informacion  -->
+			
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-9">
+					<div class="row">
+							<div class="col-lg-6">
+					<!-- 	publicidad -->
+						<div class="col-lg-12 col-md-12 my-2 ">
+							<div class="card text-center">
+						  <div class="card-header">
+						   	<h4 class="titulo-3 color-tomato">INFORMACIÓN COMO TE CONTACTARÁN</h4>
+						  </div>
+						  <div class="card-body">
+						    <div class="row">
+						    	<div class="col-lg-12">
+							    	<div class="form-group text-left">
+									    <label for="Nombres">Nombres:</label>
+									    <input type="text" class="form-control" id="nombres"  placeholder="Nombres"/>
+									</div>
+								</div>
+						    	<div class="col-lg-12">
+						    		<div class="form-group text-left">
+									    <label for="apellidos">Apellidos</label>
+									    <input type="text" class="form-control" id="apellidos"  placeholder="Apellidos"/>
+									</div>	
+						    	</div>
+						    	<div class="col-lg-12">
+						    		<div class="form-group text-left">
+									    <label for="telefono">Teléfono:</label>
+									    <input type="text" class="form-control" id="telefono"  placeholder="Teléfono"/>
+				  				    </div>	
+						    	</div>
+						    	<div class="col-lg-12">
+						    		<div class="form-group text-left">
+									    <label for="telefono">Correo:</label>
+									    <input type="text" class="form-control" id="email"  placeholder="Correo electrónico"/>
+				  				    </div>	
+						    	</div>					    	
+						    </div>
+						  </div>
+						</div>
+						</div>
+					</div>
+					<!--  -->
+				<div class="col-lg-6">
+				
+					<div class="col-lg-12 col-md-12 my-2 ">
+						<div class="card text-center">
+							 <div class="card-header">
+							   	<h4 class="titulo-3 color-tomato">INFORMACIÓN DE TU INMUEBLE</h4>
+							 </div>
+							 <div class="card-body text-left">
+							    <div class="row">	
+							    	<div class="col-lg-12">
+							    		<div class="row"> 
+							    			<div class="col-lg-6">
+							    				<div class="form-group">
+												    <label for="exampleSelect2">Tipo de Negocio</label>
+												    <select class="form-control" id="exampleSelect2">
+												      <option>Venta</option>
+												      <option>Arriendo</option>
+												      <option>Venta y Arriendo</option>
+												      
+												    </select>
+												  </div>
+							    			</div>
+							    			<div class="col-lg-6">
+							    				<div class="form-group">
+										    <label for="exampleSelect1">Tipo de Inmueble</label>
+										    <select class="form-control" id="exampleSelect1">
+										      <option>Casa</option>
+										      <option>Apartamento</option>
+										      <option>Apartaestudio</option>
+										      <option>Habitacion</option>
+										    </select>
+										  </div>
+							    			</div>
+							    		</div>
+							    		
+							    	</div>
+							    	<div class="col-lg-12">
+							    		<div class="row">
+							    			
+							    			<div class="col-lg-6">
+							    				<div class="form-group">
+												    <label for="direccionInmueble">Dirección</label>
+												    <input type="text" class="form-control" id="direccionInmueble" placeholder="Dirección del inmueble"/>
+												 </div>
+								    		</div>
+								    		<div class="col-lg-6">
+								    			<div class="form-group">
+												    <label for="precioInmueble">Precio</label>
+												    <input type="text" class="form-control" id="precioInmueble" placeholder="Precio del inmueble"/>
+												 </div>
+								    		</div>
+							    		</div>
+							    	</div>
+							    	<div class="col-lg-12">
+							    		<div class="row">
+							    			<div class="col-lg-4">
+							    				<div class="form-group">
+												    <label for="habitacionInmueble">Habitaciones</label>
+												    <input type="text" class="form-control" id="habitacionInmueble" placeholder="# de habitaciones"/>
+												 </div>
+							    			</div>
+							    			<div class="col-lg-4">
+							    				<div class="form-group">
+												    <label for="bañoInmueble">Baño</label>
+												    <input type="text" class="form-control" id="bañoInmueble" placeholder="# de baño"/>
+												 </div>
+							    			</div>
+							    			<div class="col-lg-4">
+							    				<div class="form-group">
+												    <label for="cocinaInmueble">Cocina</label>
+												    <select class="form-control" id="cocinaInmueble">
+												      <option>Si</option>
+												      <option>No</option>
+												    </select>
+												 </div>
+							    			</div>
+							    		</div>
+							    	</div>
+							    	<div class="col-lg-12">
+							    		<div class="row">
+							    			<div class="col-lg-4">
+							    				<div class="form-group">
+												    <label for="parquederoInmueble">Parqueadero</label>
+												    <input type="text" class="form-control" id="parqueaderoInmueble" placeholder="Parquedero"/>
+												 </div>
+							    			</div>					    			
+							    		</div>
+							    	</div>
+							    	<div class="col-lg-12">
+							    		<div class="form-group">
+											<label for="descripcionInmueble">Descripción</label>
+											<textarea class="form-control" id="descripcionInmueble" rows="3"></textarea>		
+							    		</div>
+							    	</div>
+							    	
+							    </div>
+							 </div>
+						</div>
+					</div>
+				
+				</div>
+			
+				</div>
+				</div>
+				<div class="col-lg-3">
+				</div>
+			</div>
+		</div>
+			<!-- end informacion -->
+		
+	</div>
+	</section>
+</p:outputPanel>
+</h:form>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center url text-white">Copyright &copy;
+			www.dondevivir.com 2018</p>
+	</div>
+	<!-- /.container --> </footer>
+
+
+	<!-- REQUIRED JS SCRIPTS -->
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/jquery/jquery.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/jquery/jquery.min.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/resources/assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
