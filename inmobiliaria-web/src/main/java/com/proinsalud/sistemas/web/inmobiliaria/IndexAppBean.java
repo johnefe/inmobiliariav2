@@ -31,6 +31,9 @@ public class IndexAppBean implements Serializable {
 	private static final long serialVersionUID = 2545548337011963741L;
 	private static final Log LOG = App.getLogger(IndexAppBean.class);
 	
+	private static final String PANEL_HEAD = "PANEL_HEAD";
+	private static final String PANEL_INMUEBLES_ARRIENDO = "PANEL_INMUEBLES_ARRIENDO";
+	private static final String PANEL_DETAIL_INMUEBLE = "PANEL_DETAIL_INMUEBLE";	
 	
 	@Autowired
 	private ITypeBussinesService iTypeBussinesService;
@@ -47,6 +50,11 @@ public class IndexAppBean implements Serializable {
 	private List<Inmueble> Anticres;
 	private List<Inmueble> inmuebles;
 	
+	private boolean showPnlHead;
+	private boolean showPnlArriendo;
+	private boolean showPnlAnticres;
+	private boolean showPnlVenta;
+	
 	DecimalFormat formatea = new DecimalFormat("###,###.##");
 	
 	public IndexAppBean() {
@@ -59,10 +67,30 @@ public class IndexAppBean implements Serializable {
 		loadTypeBussines();
 		loadInmuebles();
 		inmueblesArriendo();
+		mostrarPanel(PANEL_HEAD);
 		
 		
 	}
+	public void ocultarPaneles() {
+		showPnlAnticres=false;
+		showPnlArriendo=false;
+		showPnlVenta=false;
+		showPnlHead=false;
+	}
 	
+	public void mostrarPanel(String panel) {
+		ocultarPaneles();
+		switch (panel) {
+		case PANEL_HEAD:
+			showPnlAnticres=true;
+			showPnlArriendo=true;
+			showPnlVenta=true;
+			showPnlHead=true;
+			break;		
+		default:
+			break;
+		}
+	}
 	public void loadTypeBussines() {
 		
 		try {
@@ -165,5 +193,22 @@ public class IndexAppBean implements Serializable {
 	public List<Inmueble> getAnticres() {
 		return Anticres;
 	}
+
+	public boolean isShowPnlHead() {
+		return showPnlHead;
+	}
+
+	public boolean isShowPnlArriendo() {
+		return showPnlArriendo;
+	}
+
+	public boolean isShowPnlAnticres() {
+		return showPnlAnticres;
+	}
+
+	public boolean isShowPnlVenta() {
+		return showPnlVenta;
+	}
+	
 
 }
